@@ -21,6 +21,7 @@
       font-size: 2.5rem;
       margin-bottom: 20px;
       animation: blink 1s steps(1, end) infinite;
+      cursor: pointer;
     }
 
     p {
@@ -36,12 +37,19 @@
 </head>
 <body>
 
-  <h1>⚠ SYSTEM BREACH DETECTED ⚠</h1>
+  <h1 onclick="playSound()">⚠ SYSTEM BREACH DETECTED ⚠<br><small>(Click to Continue)</small></h1>
   <p>Unauthorized access detected. Tracking IP...</p>
 
-  <audio src="horror-warning-230511.mp3" autoplay loop>
-    
+  <audio id="alarm" loop>
+    <source src="horror-warning-230511.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
   </audio>
+
+  <script>
+    function playSound() {
+      document.getElementById("alarm").play();
+    }
+  </script>
 
 </body>
 </html>
